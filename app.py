@@ -65,4 +65,5 @@ def mostrar_calendario():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.getenv('PORT', 5000))
+    app.run('0.0.0.0', port, debug=False)
