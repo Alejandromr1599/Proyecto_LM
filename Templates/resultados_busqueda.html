@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados de la Búsqueda</title>
+    <style>
+        /* Estilos para la lista de equipos */
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.5); /* Color de fondo negro con transparencia */
+            color: white; /* Color del texto */
+        }
+
+        li a {
+            color: #fff; /* Color del enlace */
+            text-decoration: none;
+        }
+
+        li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Resultados de la Búsqueda</h1>
+    <ul>
+        {% for equipo in equipos %}
+            <li><a href="{{ url_for('detalle_equipo', equipo_id=equipo['id']) }}">{{ equipo['name'] }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

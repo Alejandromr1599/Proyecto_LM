@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario de la Premier League</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        th:first-child, td:first-child {
+            width: 20%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calendario de la Premier League</h1>
+    {% for jornada, partidos in calendario.items() %}
+        <h2>Jornada {{ jornada }}</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Local</th>
+                    <th>Visitante</th>
+                    <th>Resultado</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for partido in partidos %}
+                    <tr>
+                        <td>{{ partido['utcDate'] }}</td>
+                        <td>{{ partido['homeTeam']['name'] }}</td>
+                        <td>{{ partido['awayTeam']['name'] }}</td>
+                        <td>{{ partido['score']['fullTime']['homeTeam'] }} - {{ partido['score']['fullTime']['awayTeam'] }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endfor %}
+</body>
+</html>

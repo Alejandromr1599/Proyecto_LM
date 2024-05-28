@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Principal</title>
+    <style>
+        /* Establecer imagen de fondo */
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('static/betis.png'); /* Ruta de tu imagen en la carpeta static */
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            color: white; /* Color del texto */
+            height: 100vh; /* Ajustar al 100% de la altura de la ventana */
+            display: flex;
+            justify-content: center; 
+            align-items: center;
+            flex-direction: column; /* Alinear el contenido en columna */
+        }
+
+        /* Estilos para el cuadro de búsqueda */
+        .search-box {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .search-box input[type="text"] {
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            border: none;
+            width: 80%;
+        }
+
+        .search-box input[type="submit"] {
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+
+        .search-box input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="search-box">
+        <h1>Buscar Equipos Premier League</h1>
+        <form action="/buscar_equipo" method="post">
+            <input type="text" name="nombre_equipo" placeholder="Introduce el nombre del equipo">
+            <input type="submit" value="Buscar">
+        </form>
+        <h1>Buscar Calendario de la Liga</h1>
+        <form action="/mostrar_calendario" method="post">
+            <select name="year">
+                <option value="2020">2020</option>
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+                <!-- Añade más opciones según sea necesario -->
+            </select>
+            <input type="submit" value="Mostrar Calendario">
+        </form>
+    </div>
+</body>
+</html>
